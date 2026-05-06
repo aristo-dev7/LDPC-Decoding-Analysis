@@ -4,6 +4,8 @@
 
 This repository contains a high-performance Python implementation and performance analysis of Low-Density Parity-Check (LDPC) codes. It provides a direct comparative study between a memoryless **Hard Decision Decoder** and an iterative **Min-Sum Algorithm (MSA) Decoder** operating over an Additive White Gaussian Noise (AWGN) channel.
 
+---
+
 ## 🚀 Features
 
 *   **Single Vector Analysis (Q.1):** Detailed step-by-step decoding of a specific noisy vector, including initial Log-Likelihood Ratio (LLR) states and iterative message-passing.
