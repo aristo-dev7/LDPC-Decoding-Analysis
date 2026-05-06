@@ -2,14 +2,14 @@
 
 # LDPC Decoding: Hard Decision vs. Min-Sum Algorithm
 
-This repository contains a high-performance Python implementation and performance analysis of Low-Density Parity-Check (LDPC) codes[cite: 1]. It provides a direct comparative study between a memoryless **Hard Decision Decoder** and an iterative **Min-Sum Algorithm (MSA) Decoder** operating over an Additive White Gaussian Noise (AWGN) channel[cite: 1].
+This repository contains a high-performance Python implementation and performance analysis of Low-Density Parity-Check (LDPC) codes. It provides a direct comparative study between a memoryless **Hard Decision Decoder** and an iterative **Min-Sum Algorithm (MSA) Decoder** operating over an Additive White Gaussian Noise (AWGN) channel.
 
 ## 🚀 Features
 
-*   **Single Vector Analysis (Q.1):** Detailed step-by-step decoding of a specific noisy vector, including initial Log-Likelihood Ratio (LLR) states and iterative message-passing[cite: 1].
-*   **Monte Carlo Simulation (Q.2):** Large-scale statistical modeling using 1,000 trials per Signal-to-Noise Ratio (SNR) level to determine the Bit Error Rate (BER)[cite: 1].
-*   **Dual-Stream Logging:** A custom logging engine that captures all mathematical iterations in real-time to both the terminal and `results/decoding_log.txt`[cite: 1].
-*   **Waterfall Visualization:** Automated generation of semi-logarithmic BER vs. SNR plots to visualize coding gain[cite: 1].
+*   **Single Vector Analysis (Q.1):** Detailed step-by-step decoding of a specific noisy vector, including initial Log-Likelihood Ratio (LLR) states and iterative message-passing.
+*   **Monte Carlo Simulation (Q.2):** Large-scale statistical modeling using 1,000 trials per Signal-to-Noise Ratio (SNR) level to determine the Bit Error Rate (BER).
+*   **Dual-Stream Logging:** A custom logging engine that captures all mathematical iterations in real-time to both the terminal and `results/decoding_log.txt`.
+*   **Waterfall Visualization:** Automated generation of semi-logarithmic BER vs. SNR plots to visualize coding gain.
 
 ---
 
@@ -36,8 +36,8 @@ LDPC-Project/
 
 ### 1. Prerequisites
 *   **Python 3.8+**
-*   **NumPy:** Essential for high-speed matrix operations and LLR updates[cite: 1].
-*   **Matplotlib:** Required for rendering the scientific performance plots[cite: 1].
+*   **NumPy:** Essential for high-speed matrix operations and LLR updates.
+*   **Matplotlib:** Required for rendering the scientific performance plots.
 
 ### 2. Installation
 It is highly recommended to use a **Conda** environment for isolated dependency management:
@@ -62,8 +62,8 @@ python src/main.py
 ```
 
 ### Execution Phases
-1.  **Q.1 Processing:** The script evaluates the received vector $y = [0.2, 1.1, -0.3, 0.9, 0.7, -0.1, 1.2, 0.4]$[cite: 1]. It performs at least **3 iterations** of Min-Sum decoding to satisfy academic requirements[cite: 1].
-2.  **Q.2 Processing:** The Monte Carlo engine executes 1,000 trials for each SNR point from **0 dB to 10 dB**[cite: 1].
+1.  **Q.1 Processing:** The script evaluates the received vector $y = [0.2, 1.1, -0.3, 0.9, 0.7, -0.1, 1.2, 0.4]$. It performs at least **3 iterations** of Min-Sum decoding to satisfy academic requirements.
+2.  **Q.2 Processing:** The Monte Carlo engine executes 1,000 trials for each SNR point from **0 dB to 10 dB**.
 
 ---
 
@@ -73,20 +73,22 @@ The simulation can be customized by modifying the parameters within `src/main.py
 
 *   **Adjust SNR Range:** Modify the `max_snr_db` variable to extend the plot (e.g., to 12 dB or 15 dB).
 *   **Increase Rigor:** Increase the `num_trials` from 1,000 to 10,000 for a smoother, more statistically accurate waterfall curve at higher SNR levels.
-*   **Custom Vector Tests:** Update the initial vector `y` or the noise variance in the `run_q1()` function to observe different codeword "traps"[cite: 1].
+*   **Custom Vector Tests:** Update the initial vector `y` or the noise variance in the `run_q1()` function to observe different codeword "traps".
 
 ---
 
 ## 🔬 Theoretical Background
 
-*   **BPSK Modulation:** Digital bits are mapped such that $0 \rightarrow +1$ and $1 \rightarrow -1$[cite: 1].
-*   **AWGN Model:** Noise is sampled from a Gaussian distribution where variance $\sigma^2$ is inversely proportional to the SNR[cite: 1].
-*   **Min-Sum Algorithm:** A sign-magnitude approximation of the Belief Propagation algorithm that iteratively updates "beliefs" passed between Check Nodes and Variable Nodes across a Tanner Graph[cite: 1].
+*   **BPSK Modulation:** Digital bits are mapped such that $0 \rightarrow +1$ and $1 \rightarrow -1$.
+*   **AWGN Model:** Noise is sampled from a Gaussian distribution where variance $\sigma^2$ is inversely proportional to the SNR.
+*   **Min-Sum Algorithm:** A sign-magnitude approximation of the Belief Propagation algorithm that iteratively updates "beliefs" passed between Check Nodes and Variable Nodes across a Tanner Graph.
 
 ---
 
 ## 📊 Performance Insights
 
-Based on the latest execution logs generated by this implementation[cite: 1]:
-*   **Structural Traps:** In Q.1, the noise at indices 2 and 5 creates a specific error pattern that satisfies all parity checks ($S = \mathbf{0}$), causing both decoders to satisfy parity despite bit errors remaining[cite: 1].
-*   **Coding Gain:** The Min-Sum algorithm demonstrates a steep performance drop as SNR increases, typically reaching **error-free status (BER = 0.0) by the 6 dB mark**[cite: 1].
+Based on the latest execution logs generated by this implementation:
+*   **Structural Traps:** In Q.1, the noise at indices 2 and 5 creates a specific error pattern that satisfies all parity checks ($S = \mathbf{0}$), causing both decoders to satisfy parity despite bit errors remaining.
+*   **Coding Gain:** The Min-Sum algorithm demonstrates a steep performance drop as SNR increases, typically reaching **error-free status (BER = 0.0) by the 6 dB mark**.
+
+---
