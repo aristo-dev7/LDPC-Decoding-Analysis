@@ -1,0 +1,18 @@
+# Python artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+.env
+
+# Conda
+.conda/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Results (Optional: keep if you want to show your specific run)
+# results/
